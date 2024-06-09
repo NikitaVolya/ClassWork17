@@ -33,12 +33,8 @@ public:
 	Square(Vector pPosition, Vector pSize) : Shape(pPosition), size(pSize) {};
 
 	Vector getSize() const { return size; }
-	void setSize(Vector pSize)
-	{
-		if (pSize.x <= 0 || pSize.y <= 0)
-			throw std::invalid_argument("invalide value");
-		size = pSize;
-	}
+	void setSize(Vector pSize);
+	
 
 	void print() const override { std::cout << "Position: " << getPosition() << " Size: " << size << std::endl; };
 	float getSquare() const override { return size.x * size.y; }
@@ -53,11 +49,7 @@ public:
 	Circle(Vector pPosition, int pRadius) : Shape(pPosition) { setRadius(pRadius); };
 
 	int getRadius() const { return radius; }
-	void setRadius(int value) {
-		if (value <= 0)
-			throw std::invalid_argument("invalide value");
-		radius = value;
-	}
+	void setRadius(int value);
 
 	void print() const override { std::cout << "Position: " << getPosition() << " Radius: " << radius << std::endl; };
 	float getSquare() const override { return 3.14159265f * radius * radius; }
